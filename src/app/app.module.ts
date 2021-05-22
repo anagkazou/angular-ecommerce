@@ -21,6 +21,8 @@ import { RouterModule } from '@angular/router';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { LoginComponent } from './components/login/login.component';
 
+import { AngularFireAuth } from 'angularfire2/auth';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ import { LoginComponent } from './components/login/login.component';
     OrderSucessComponent,
     MyOrdersComponent,
     AdminProductsComponent,
+    CheckOutComponent,
     AdminOrdersComponent,
     LoginComponent,
   ],
@@ -73,6 +76,7 @@ import { LoginComponent } from './components/login/login.component';
       },
     ]),
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

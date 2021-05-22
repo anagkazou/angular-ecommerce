@@ -23,6 +23,8 @@
     "angularfire2": "^4.0.0-rc.1",
     "bootstrap": "^5.0.1",
     "firebase": "^4.2.0",
+    "firebase-tools": "^9.11.0",
+    "g": "^2.0.1",
     "rxjs": "~6.6.0",
     "rxjs-compat": "^6.6.7",
     "tslib": "^2.0.0",
