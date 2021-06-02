@@ -7,5 +7,6 @@ export const environment = {
     storageBucket: 'angular-ecommerce-2d3a7.appspot.com',
     messagingSenderId: '105118083523',
     appId: '1:105118083523:web:b7a1fcbd92897a4e297576',
+    databaseURL: 'https://angular-ecommerce-2d3a7-default-rtdb.firebaseio.com/',
   },
 };

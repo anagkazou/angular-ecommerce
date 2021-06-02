@@ -82,6 +82,7 @@ import { UserService } from './services/user/user.service';
     ]),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
   ],
   providers: [AuthService, AuthGuardService, UserService],
   bootstrap: [AppComponent],
