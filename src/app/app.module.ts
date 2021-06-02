@@ -22,6 +22,9 @@ import { CheckOutComponent } from './components/check-out/check-out.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthService } from './services/auth/auth.service';
+import { AuthGuardService } from './services/auth-gaurd/auth-guard.service';
+import { UserService } from './services/user/user.service';
 
 @NgModule({
   declarations: [
@@ -50,10 +53,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
         path: 'shopping-cart',
         component: ShoppingCartComponent,
       },
-      {
-        path: 'check-out',
-        component: CheckOutComponent,
-      },
+
       {
         path: 'order-success',
         component: OrderSucessComponent,
@@ -61,6 +61,11 @@ import { AngularFireAuth } from 'angularfire2/auth';
       {
         path: 'customer/orders',
         component: MyOrdersComponent,
+      },
+      {
+        path: 'checkout',
+        component: CheckOutComponent,
+        canActivate: [AuthGuardService],
       },
       {
         path: 'login',
@@ -78,7 +83,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [AuthService, AuthGuardService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

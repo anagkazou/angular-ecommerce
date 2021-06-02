@@ -25,13 +25,13 @@
       >
 
       <li
-        *ngIf="user$ | async as user; else anonymousUser"
+        *ngIf="auth.user$ | async as user; else anonymousUser"
         ngbDropdown
         class="nav-item dropdown"
       >
         <a
           ngbDropdownToggle
-          *ngIf="user$ | async as user"
+          *ngIf="auth.user$ | async as user"
           class="nav-link dropdown-toggle"
           id="dropdown01"
           data-toggle="dropdown"
