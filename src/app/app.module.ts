@@ -25,6 +25,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from './services/auth/auth.service';
 import { AuthGuardService } from './services/auth-gaurd/auth-guard.service';
 import { UserService } from './services/user/user.service';
+import { AdminAuthGuardService } from './services/admin-auth-guard/admin-auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -74,17 +75,24 @@ import { UserService } from './services/user/user.service';
       {
         path: 'admin/products',
         component: AdminProductsComponent,
+        canActivate: [AuthGuardService, AdminAuthGuardService],
       },
       {
-        path: 'admin/order',
+        path: 'admin/orders',
         component: AdminOrdersComponent,
+        canActivate: [AuthGuardService, AdminAuthGuardService],
       },
     ]),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
   ],
-  providers: [AuthService, AuthGuardService, UserService],
+  providers: [
+    AuthService,
+    AuthGuardService,
+    UserService,
+    AdminAuthGuardService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
