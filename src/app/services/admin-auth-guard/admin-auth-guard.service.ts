@@ -9,12 +9,11 @@ import { Observable, pipe } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class AdminAuthGuardService implements CanActivate {
-  constructor(private auth: AuthService, private userService: UserService) {}
+export class AdminAuthGuard implements CanActivate {
+  constructor(private auth: AuthService ) {}
 
   canActivate(): Observable<boolean> {
-    return this.auth.user$
-      .pipe(switchMap((user) => this.userService.get(user.uid)))
-      .map((appUser) => appUser.isAdmin);
+    return this.auth.appUser$
+       .map((appUser) => appUser.isAdmin);
   }
 }
